@@ -6,6 +6,11 @@
   border: 1px solid red;
 }
 
+:root{
+    --dark: #1f0070;
+    --extra-dark: #0e0033;
+}
+
 body {
   color: #fff;
 }
@@ -88,21 +93,90 @@ body {
 }
 
 .home-content .start-btn {
-width: 50vw;
-max-width: 200px;
-height: 4rem;
-background-color: #1f0070;
-border: 1px solid #1f0070;
-color: #fff;
-border-radius: 6px;
-box-shadow: 0 0 10px;
-font-size: 1.5rem;
+  width: 50vw;
+  max-width: 200px;
+  height: 4rem;
+  background-color: var(--dark);
+  border: 1px solid var(--dark);
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.home-content .start-btn:hover {
+  box-shadow: 0 0 50px;
+  background-color: var(--extra-dark);
+  border: 1px solid var(--extra-dark);
+}
+
+.popup-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    opacity: 0; 
+    pointer-events: none;
+}
+
+.popup-info h2 {
+    font-size: 3rem;
+    color: var(--dark);
+}
+
+.popup-info .info{
+    display: inline-block;
+    font-size: 1rem;
+    color: #333;
+    margin: .5rem 0;
+}
+
+.popup-info .btn-group {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;   
+ margin-top: 2rem;
+ border-top: 1px solid #999;
+ margin-top: 10px;
+ padding: 1rem 0 0.5rem;
+}
+
+.popup-info .btn-group .info-btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 45px;
+    background: var(--dark);
+    border: 2px solid var(--dark);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 cursor: pointer;
 transition: 0.5s;
 }
 
-.home-content .start-btn:hover{
-    box-shadow: 0 0 20px;
-    background-color: #0e0033;
-border: 1px solid #0e0033;
+
+.popup-info .btn-group .info-btn:nth-child(1){
+    background: transparent; 
+    color: var(--dark);
 }
+
+.popup-info .btn-group .info-btn:nth-child(1):hover{
+    background: var(--extra-dark); 
+    color: #fff;
+}
+
+.popup-info .btn-group .info-btn:nth-child(2):hover{
+    background: var(--extra-dark); 
+    border-color: var(--extra-dark);
+}
+
