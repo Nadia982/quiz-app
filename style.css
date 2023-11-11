@@ -55,7 +55,7 @@ body {
   background: rgb(10, 0, 36);
   background: linear-gradient(
     135deg,
-    rgba(10, 0, 36, 1) 0%,
+    var(--extra-dark) 0%,
     rgba(33, 54, 128, 1) 51%,
     rgba(30, 150, 137, 1) 100%
   );
@@ -96,8 +96,8 @@ body {
   width: 50vw;
   max-width: 200px;
   height: 4rem;
-  background-color: var(--dark);
-  border: 1px solid var(--dark);
+  background-color: var(--extra-dark);
+  border: 1px solid var(--extra-dark);
   color: #fff;
   border-radius: 6px;
   box-shadow: 0 0 20px;
@@ -116,13 +116,20 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(.9);
     width: 550px;
     background: #fff;
     border-radius: 0.5rem;
     padding: 1rem 2rem;
     opacity: 0; 
     pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.popup-info.active{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .popup-info h2 {
