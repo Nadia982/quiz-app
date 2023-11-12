@@ -7,8 +7,11 @@
 }
 
 :root{
-    --dark: #1f0070;
-    --extra-dark: #0e0033;
+   --light-blue: rgba(30, 150, 137, 1);
+   --medium-blue: rgba(33, 54, 128, 1);   
+    --dark-blue: #1f0070;
+    --extra-dark-blue: #0e0033;
+    --darkest-blue: #08001f;
 }
 
 body {
@@ -55,10 +58,17 @@ body {
   background: rgb(10, 0, 36);
   background: linear-gradient(
     135deg,
-    var(--extra-dark) 0%,
-    rgba(33, 54, 128, 1) 51%,
-    rgba(30, 150, 137, 1) 100%
+    var(--extra-dark-blue) 0%,
+    var(--medium-blue) 51%,
+    var(--light-blue) 100%
   );
+  pointer-events: auto;
+  transition: .3s ease;
+}
+
+.main.active {
+  filter: blur(15px);
+  pointer-events: none;
 }
 
 .home {
@@ -80,7 +90,7 @@ body {
 
 .home-content h1 {
   text-align: center;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -96,8 +106,8 @@ body {
   width: 50vw;
   max-width: 200px;
   height: 4rem;
-  background-color: var(--extra-dark);
-  border: 1px solid var(--extra-dark);
+  background-color: var(--extra-dark-blue);
+  border: 1px solid var(--extra-dark-blue);
   color: #fff;
   border-radius: 6px;
   box-shadow: 0 0 20px;
@@ -108,8 +118,8 @@ body {
 
 .home-content .start-btn:hover {
   box-shadow: 0 0 50px;
-  background-color: var(--extra-dark);
-  border: 1px solid var(--extra-dark);
+  background-color: var(--darkest-blue);
+  border: 1px solid var(--darkest-blue);
 }
 
 .popup-info {
@@ -117,7 +127,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(.9);
-    width: 550px;
+    width: 80vw;
+    max-width: 600px;
     background: #fff;
     border-radius: 0.5rem;
     padding: 1rem 2rem;
@@ -134,11 +145,12 @@ body {
 
 .popup-info h2 {
     font-size: 3rem;
-    color: var(--dark);
+    color: var(--dark-blue);
 }
 
 .popup-info .info{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     font-size: 1rem;
     color: #333;
     margin: .5rem 0;
@@ -160,8 +172,8 @@ body {
     align-items: center;
     width: 130px;
     height: 45px;
-    background: var(--dark);
-    border: 2px solid var(--dark);
+    background: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
     border-radius: 0.5rem;
     text-decoration: none;
     color: #fff;
@@ -174,16 +186,16 @@ transition: 0.5s;
 
 .popup-info .btn-group .info-btn:nth-child(1){
     background: transparent; 
-    color: var(--dark);
+    color: var(--dark-blue);
 }
 
 .popup-info .btn-group .info-btn:nth-child(1):hover{
-    background: var(--extra-dark); 
+    background: var(--extra-dark-blue); 
     color: #fff;
 }
 
 .popup-info .btn-group .info-btn:nth-child(2):hover{
-    background: var(--extra-dark); 
-    border-color: var(--extra-dark);
+    background: var(--extra-dark-blue); 
+    border-color: var(--extra-dark-blue);
 }
 
