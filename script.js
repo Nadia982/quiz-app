@@ -4,6 +4,7 @@ const exitBtn = document.querySelector(".exit-btn");
 const main = document.querySelector(".main");
 const continueBtn = document.querySelector(".continue-btn");
 const quizSection = document.querySelector(".quiz-section");
+const quizBox = document.querySelector(".quiz-box");
 
 startBtn.onclick = () => {
   popupInfo.classList.add("active");
@@ -16,7 +17,59 @@ exitBtn.onclick = () => {
 };
 
 continueBtn.onclick = () => {
-    quizSection.classList.add("active");
-    popupInfo.classList.remove("active");
+  quizSection.classList.add("active");
+  popupInfo.classList.remove("active");
   main.classList.remove("active");
-  };
+  quizBox.classList.add("active");
+  showQuestions(0);
+  questionCounter(1);
+};
+
+let questionCount = 0;
+let questionNumb = 1;
+
+const nextBtn = document.querySelector(".next-btn");
+
+nextBtn.onclick = () => {
+  //  console.log(questions);
+  if (questionCount < questions.length - 1) {
+    questionCount++;
+    showQuestions(questionCount);
+
+    questionNumb++;
+    questionCounter(questionNumb);
+  } else {
+    console.log("Quiz completed");
+  }
+};
+
+const backBtn = document.querySelector(".back-btn");
+backBtn.onclick = () => {
+  if (questionCount > 0 && questionCount < questions.length) {
+    questionCount--;
+    showQuestions(questionCount);
+
+    questionNumb--;
+    questionCounter(questionNumb);
+  } else {
+    console.log("Quiz completed");
+  }
+};
+
+const optionList = document.querySelector(".option-list");
+
+function showQuestions(index) {
+  const questionText = document.querySelector(".question-text");
+  questionText.textContent = `${questions[index].id}. ${questions[index].question}`;
+
+  let optionTag = `<div class="option"><span>${questions[index].options[0]}.</span></div>
+  <div class="option"><span>${questions[index].options[1]}.</span></div>
+  <div class="option"><span>${questions[index].options[2]}.</span></div>
+  `;
+  optionList.innerHTML = optionTag;
+}
+
+const questionCounter = (index) => {
+  const questionTotal = document.querySelector(".question-total");
+  questionTotal.textContent = `${index} of ${questions.length} questions`;
+};
