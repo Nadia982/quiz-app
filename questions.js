@@ -14,11 +14,11 @@ let questions = [
     id: 2,
     question: "What does the Memory Address Register (MAR) do?",
     answer:
-      "C. Holds the address of the next instruction or piece of data that the CPU needs.",
+      "C. Holds the address of the next instruction or piece of data that the CPU needs",
     options: [
       "A. Holds the current instruction being decoded and executed",
       "B. Holds the contents found at the address held in the Memory Address Register (MAR) ",
-      "C. holds the address of the next instruction or piece of data that the CPU needs.",
+      "C. holds the address of the next instruction or piece of data that the CPU needs",
     ],
   },
   {
