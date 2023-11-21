@@ -62,9 +62,9 @@ function showQuestions(index) {
   const questionText = document.querySelector(".question-text");
   questionText.textContent = `${questions[index].id}. ${questions[index].question}`;
 
-  let optionTag = `<div class="option"><span>${questions[index].options[0]}.</span></div>
-  <div class="option"><span>${questions[index].options[1]}.</span></div>
-  <div class="option"><span>${questions[index].options[2]}.</span></div>
+  let optionTag = `<div class="option"><span>${questions[index].options[0]}</span></div>
+  <div class="option"><span>${questions[index].options[1]}</span></div>
+  <div class="option"><span>${questions[index].options[2]}</span></div>
   `;
   optionList.innerHTML = optionTag;
 
@@ -76,12 +76,29 @@ function showQuestions(index) {
 
 function optionSelected(answer) {
   let userAnswer = answer.textContent;
+  console.log("The user's answer is " + userAnswer);
   let correctAnswer = questions[questionCount].answer;
-  
+  console.log("The correct answer is " + correctAnswer);
+
+  let allOptions = optionList.children.length;
+
   if (userAnswer == correctAnswer) {
     console.log("Answer is correct");
+    answer.classList.add("correct");
   } else {
-  console.log("Answer is not correct")
+    console.log("Answer is not correct");
+    answer.classList.add("incorrect");
+
+    //if wrong answer is selected, show user the correct answer
+    for (let i = 0; i < allOptions; i++) {
+      if (optionList.children[i].textContent == correctAnswer) {
+        optionList.children[i].setAttribute("class", "option correct");
+      }
+    }
+  }
+  //disable other buttons once user has made a selection
+  for (let i = 0; i < allOptions; i++) {
+    optionList.children[i].classList.add("disabled");
   }
 }
 

@@ -173,9 +173,8 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-top: 1px solid #999;
-  margin-top: 10px;
   padding: 1rem 0 0.5rem;
 }
 
@@ -185,8 +184,8 @@ body {
   align-items: center;
   width: 130px;
   height: 45px;
-  background: var(--dark-blue);
-  border: 2px solid var(--dark-blue);
+  background: var(--extra-dark-blue);
+  border: 2px solid var(--extra-dark-blue);
   border-radius: 0.5rem;
   text-decoration: none;
   color: #fff;
@@ -195,6 +194,8 @@ body {
   cursor: pointer;
   transition: 0.5s;
 }
+
+
 
 .popup-info .btn-group .info-btn:nth-child(1) {
   background: transparent;
@@ -207,9 +208,13 @@ body {
 }
 
 .popup-info .btn-group .info-btn:nth-child(2):hover {
-  background: var(--extra-dark-blue);
-  border-color: var(--extra-dark-blue);
+  background: var(--darkest-blue);
+  border-color: var(--darkest-blue);
+  box-shadow: 0 0 40px var(--darkest-blue);
+  font-weight: 700;
 }
+
+
 
 .quiz-section {
   width: 100%;
@@ -261,7 +266,7 @@ opacity: 1;
 pointer-events: auto;
 transform: scale(1);
 transition: 1s ease;
-transition-delay: 1s;
+/* transition-delay: 1s; */
 }
 
 .quiz-box h1 {
@@ -300,28 +305,38 @@ transition-delay: 1s;
 
 .option-list {
   display: flex;
-  gap: 1vh;
+  gap: 2vh;
   flex-direction: column;
 }
 
 .option-list .option {
   color: #fff;
   font-size: 1rem;
-  width: 100%;
-  /* max-height: 20vh; */
-  padding: .3rem;
-  /* margin: .5rem 0; */
+  width: 90%;
+  margin: 0 auto;
+  padding: .4rem;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: 0.3s;
-  
+  /* transition: 0.3s; */
 }
 
 .option-list .option:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+.option-list .option.correct {
+background-color: #016b56;
+}
+
+.option-list .option.incorrect {
+  background-color: #a60045;
+}
+
+.option-list .option.disabled {
+  pointer-events: none;
 }
 
 .quiz-box .quiz-footer {
@@ -367,7 +382,7 @@ background: var(--extra-dark-blue);
   border-radius: 0.5rem;
   color: #fff;
   font-size: 1.2rem;
-  transition: 0.3s ease;
+  /* transition: 0.3s ease; */
   /* pointer-events: none; */
 }
 
