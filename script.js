@@ -23,10 +23,12 @@ continueBtn.onclick = () => {
   quizBox.classList.add("active");
   showQuestions(0);
   questionCounter(1);
+  showScore();
 };
 
 let questionCount = 0;
 let questionNumb = 1;
+let userScore = 0; 
 
 const nextBtn = document.querySelector(".next-btn");
 
@@ -83,10 +85,11 @@ function optionSelected(answer) {
   let allOptions = optionList.children.length;
 
   if (userAnswer == correctAnswer) {
-    console.log("Answer is correct");
     answer.classList.add("correct");
+    userScore++;
+    showScore();
+
   } else {
-    console.log("Answer is not correct");
     answer.classList.add("incorrect");
 
     //if wrong answer is selected, show user the correct answer
@@ -106,3 +109,8 @@ const questionCounter = (index) => {
   const questionTotal = document.querySelector(".question-total");
   questionTotal.textContent = `${index} of ${questions.length} questions`;
 };
+
+function showScore(){
+  const scoreText = document.querySelector(".quiz-score");
+  scoreText.textContent = `Score: ${userScore}/${questions.length}`;
+}

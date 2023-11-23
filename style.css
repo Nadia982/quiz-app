@@ -347,6 +347,7 @@ background-color: #016b56;
   border-top: 2px solid var(--light-blue);
   padding-top: .5rem;
   gap: .5rem;
+  width: 90%;
 }
 
 .question-total {
