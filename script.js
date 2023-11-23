@@ -33,13 +33,13 @@ let userScore = 0;
 const nextBtn = document.querySelector(".next-btn");
 
 nextBtn.onclick = () => {
-  //  console.log(questions);
   if (questionCount < questions.length - 1) {
     questionCount++;
     showQuestions(questionCount);
-
     questionNumb++;
     questionCounter(questionNumb);
+    nextBtn.classList.remove("active");
+
   } else {
     console.log("Quiz completed");
   }
@@ -103,6 +103,7 @@ function optionSelected(answer) {
   for (let i = 0; i < allOptions; i++) {
     optionList.children[i].classList.add("disabled");
   }
+  nextBtn.classList.add("active");
 }
 
 const questionCounter = (index) => {
