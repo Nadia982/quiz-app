@@ -214,12 +214,11 @@ body {
   font-weight: 700;
 }
 
-
-
 .quiz-section {
   width: 100%;
   position: relative;
-  left: -50%;
+  /* left: -50%; */
+  left: 0;
   margin: 0 auto;
   margin-top: 0;
   /* transition: 0.8s ease-in-out;
@@ -397,4 +396,95 @@ pointer-events: none;
 
 .quiz-footer .back-btn:hover {
   background-color: var(--darkest-blue);
+}
+
+.quiz-section .result-box{
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background: transparent;
+  border: 2px solid var(--light-blue);
+  border-radius: .5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.result-box h2 {
+  font-size: 3rem;
+}
+
+.result-box .percentage-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.percentage-container .circular-progress{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: conic-gradient(var(--light-blue) 3.6deg, rgba(255, 255, 255, 0.1) 0deg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.percentage-container .circular-progress::before{
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: var(--darkest-blue);
+  border-radius: 50%;
+}
+
+.circular-progress .progress-value {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.percentage-container .score-text {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+.buttons button{
+  width: 45%;
+  height: 3rem;
+  background: var(--darkest-blue);
+  border: 2px solid var(--darkest-blue);
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.buttons button:nth-child(1):hover {
+  background: var(--dark-blue);
+  border: var(--dark-blue);
+  
+}
+
+.buttons button:nth-child(2) {
+  background: transparent;
+}
+
+.buttons button:nth-child(2):hover {
+  background: var(--dark-blue);
 }
