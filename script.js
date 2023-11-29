@@ -5,6 +5,7 @@ const main = document.querySelector(".main");
 const continueBtn = document.querySelector(".continue-btn");
 const quizSection = document.querySelector(".quiz-section");
 const quizBox = document.querySelector(".quiz-box");
+const resultBox = document.querySelector(".result-box");
 
 startBtn.onclick = () => {
   popupInfo.classList.add("active");
@@ -28,7 +29,7 @@ continueBtn.onclick = () => {
 
 let questionCount = 0;
 let questionNumb = 1;
-let userScore = 0; 
+let userScore = 0;
 
 const nextBtn = document.querySelector(".next-btn");
 
@@ -39,9 +40,8 @@ nextBtn.onclick = () => {
     questionNumb++;
     questionCounter(questionNumb);
     nextBtn.classList.remove("active");
-
   } else {
-    console.log("Quiz completed");
+    showResultBox();
   }
 };
 
@@ -88,7 +88,6 @@ function optionSelected(answer) {
     answer.classList.add("correct");
     userScore++;
     showScore();
-
   } else {
     answer.classList.add("incorrect");
 
@@ -111,7 +110,33 @@ const questionCounter = (index) => {
   questionTotal.textContent = `${index} of ${questions.length} questions`;
 };
 
-function showScore(){
+function showScore() {
   const scoreText = document.querySelector(".quiz-score");
   scoreText.textContent = `Score: ${userScore}/${questions.length}`;
+}
+
+function showResultBox() {
+  quizBox.classList.remove("active");
+  resultBox.classList.add("active");
+
+  const scoreText = document.querySelector(".score-text");
+  scoreText.textContent = `Score: ${userScore}/${questions.length}`;
+
+  const circularProgress = document.querySelector(".circular-progress");
+  const progressValue = document.querySelector(".progress-value");
+
+  let progressStartValue = 0;
+  let progressEndValue = (userScore/questions.length)*100;
+  let speed = 20;
+
+  let progress = setInterval(() => {
+    progressStartValue++;
+    progressValue.textContent = `${progressStartValue}%`;
+
+    circularProgress.style.background = `conic-gradient(var(--light-blue) ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
+
+    if(progressStartValue == progressEndValue){
+      clearInterval(progress);
+    }
+  }, speed);
 }

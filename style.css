@@ -12,7 +12,7 @@
   --dark-blue: #1f0070;
   --extra-dark-blue: #0e0033;
   --darkest-blue: #08001f;
-  --gradient-middle: 60%;
+  --gradient-middle: 70%;
   --mid-gray:  rgba(255, 255, 255, 0.1);
 }
 
@@ -174,7 +174,7 @@ body {
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
-  border-top: 1px solid #999;
+  /* border-top: 1px solid #999; */
   padding: 1rem 0 0.5rem;
 }
 
@@ -211,18 +211,16 @@ body {
   background: var(--darkest-blue);
   border-color: var(--darkest-blue);
   box-shadow: 0 0 40px var(--darkest-blue);
-  font-weight: 700;
 }
 
 .quiz-section {
   width: 100%;
   position: relative;
-  /* left: -50%; */
-  left: 0;
+  left: -50%;
   margin: 0 auto;
   margin-top: 0;
-  /* transition: 0.8s ease-in-out;
-  transition-delay: 0.25s; */
+  transition: 0.8s ease-in-out;
+  transition-delay: 0.25s;
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -258,6 +256,8 @@ body {
   pointer-events: none;
   transform: scale(0.9);
   gap: 1vh;
+  transition: .3s ease;
+transition-delay: 0s;
 }
 
 .quiz-section .quiz-box.active{
@@ -377,6 +377,7 @@ pointer-events: none;
 
 .quiz-footer .back-btn, .quiz-footer .next-btn{
   background: var(--mid-gray);
+  border: none;
   }
 
 .quiz-footer .next-btn, .quiz-footer .back-btn {
@@ -412,7 +413,15 @@ pointer-events: none;
   display: flex;
   flex-direction: column;
   align-items: center;
- 
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s ease;
+}
+
+.quiz-section .result-box.active{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .result-box h2 {
@@ -476,15 +485,15 @@ pointer-events: none;
 }
 
 .buttons button:nth-child(1):hover {
-  background: var(--dark-blue);
-  border: var(--dark-blue);
-  
+  box-shadow: 0 0 20px;
 }
 
 .buttons button:nth-child(2) {
-  background: transparent;
+  background: var(--dark-blue);
+  border: var(--dark-blue);
 }
 
 .buttons button:nth-child(2):hover {
-  background: var(--dark-blue);
+  background: var(--extra-dark-blue);
+  border: 2px solid var(--extra-dark-blue);
 }
