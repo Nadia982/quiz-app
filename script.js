@@ -37,6 +37,7 @@ tryAgainButton.onclick = () => {
   userScore = 0;
   showQuestions(questionCount);
   questionCounter(questionNumb);
+  showScore();
 };
 
 
