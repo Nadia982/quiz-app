@@ -7,6 +7,7 @@ const quizSection = document.querySelector(".quiz-section");
 const quizBox = document.querySelector(".quiz-box");
 const resultBox = document.querySelector(".result-box");
 const tryAgainButton = document.querySelector(".tryAgain-btn");
+const goHomeBtn = document.querySelector(".goHome-btn");
 
 startBtn.onclick = () => {
   popupInfo.classList.add("active");
@@ -38,6 +39,19 @@ tryAgainButton.onclick = () => {
   showQuestions(questionCount);
   questionCounter(questionNumb);
   showScore();
+};
+
+goHomeBtn.onclick = () => {
+  quizSection.classList.remove("active");
+  nextBtn.classList.remove("active");
+  resultBox.classList.remove("active");
+
+  questionCount = 0;
+  questionNumb = 1;
+  userScore = 0;
+  
+  showQuestions(questionCount);
+  questionCounter(questionNumb);
 };
 
 
